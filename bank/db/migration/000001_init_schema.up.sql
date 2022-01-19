@@ -21,13 +21,13 @@ CREATE TABLE "transfers" (
   "created_at" timestamp NOT NULL DEFAULT 'now()'
 );
 
-ALTER TABLE "entries" ADD FOREIGN KEY ("account_id") REFERENCES "account" ("id");
+ALTER TABLE "entries" ADD FOREIGN KEY ("account_id") REFERENCES "accounts" ("id");
 
-ALTER TABLE "transfers" ADD FOREIGN KEY ("from_account_id") REFERENCES "account" ("id");
+ALTER TABLE "transfers" ADD FOREIGN KEY ("from_account_id") REFERENCES "accounts" ("id");
 
-ALTER TABLE "transfers" ADD FOREIGN KEY ("to_account_id") REFERENCES "account" ("id");
+ALTER TABLE "transfers" ADD FOREIGN KEY ("to_account_id") REFERENCES "accounts" ("id");
 
-CREATE INDEX ON "account" ("owner");
+CREATE INDEX ON "accounts" ("owner");
 
 CREATE INDEX ON "entries" ("account_id");
 
