@@ -64,6 +64,18 @@ package main
 
 import "fmt"
 
+type Address struct {
+	street string
+	city   string
+	state  string
+	zip    string
+}
+type Person struct {
+	name    string
+	age     int
+	address Address
+}
+
 func main() {
 	defer fmt.Println("Good bye! 1")
 	defer fmt.Println("Good bye! 2")
@@ -105,6 +117,19 @@ func main() {
 	for j := 1; j <= 10; j++ {
 		fmt.Println(<-numberCh)
 	}
+
+	person := &Person{
+		name: "Bob",
+		age:  35,
+		address: Address{
+			street: "789 Broadway",
+			city:   "New York",
+			state:  "NY",
+			zip:    "10003",
+		},
+	}
+
+	fmt.Println(person)
 
 }
 
